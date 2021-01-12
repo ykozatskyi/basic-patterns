@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "FactoryMethodExample": {
+      "commandName": "Project",
+      "commandLineArgs": "stripe"
+    }
+  }
+}
