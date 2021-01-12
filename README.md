@@ -1,2 +1,2 @@
-# basic-patterns
-Basic programming patterns example work
+# design-patterns
+Design programming patterns example work
