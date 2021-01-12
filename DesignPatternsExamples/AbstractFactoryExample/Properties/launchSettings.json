@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "AbstractFactoryExample": {
+      "commandName": "Project",
+      "commandLineArgs": "apple"
+    }
+  }
+}
