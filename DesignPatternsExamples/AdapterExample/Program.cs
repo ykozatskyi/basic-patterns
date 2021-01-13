@@ -11,7 +11,10 @@ namespace AdapterExample
         static void Main(string[] args)
         {
             //working with interface
-            ISomeClass someClass = new SomeClassAdapter();
+            ISomeClass someClass = new ClassImplementationAdapter();
+            someClass.DoWork(new char[] { 'H', 'e', 'l', 'l', 'o' });
+
+            someClass = new InstanceImplementationAdapter();
             someClass.DoWork(new char[] { 'H', 'e', 'l', 'l', 'o' });
         }
     }
@@ -30,7 +33,7 @@ namespace AdapterExample
         /// <returns></returns>
         public object DoSomeWork(string input)
         {
-            Console.WriteLine($"Json input: {input}");
+            Console.WriteLine($"Input string: {input}");
             return default;
         }
     }
@@ -46,13 +49,31 @@ namespace AdapterExample
     /// <summary>
     /// SomeClass adapter without changing code inside SomeClass
     /// </summary>
-    class SomeClassAdapter : SomeClass, ISomeClass
+    class ClassImplementationAdapter : SomeClass, ISomeClass
     {
         public object DoWork(char[] input)
         {
             //adapting things
-            var validInput = new string(input);
+            string validInput = new string(input); //convert char array type to string type
             return DoSomeWork(validInput);
+        }
+    }
+
+    /// <summary>
+    /// SomeClass adapter without changing code inside SomeClass
+    /// </summary>
+    class InstanceImplementationAdapter : ISomeClass
+    {
+        /// <summary>
+        /// Instance of SomeClass
+        /// </summary>
+        protected SomeClass someClass = new SomeClass();
+
+        public object DoWork(char[] input)
+        {
+            //adapting things
+            var validInput = new string(input);
+            return someClass.DoSomeWork(validInput);
         }
     }
 }
