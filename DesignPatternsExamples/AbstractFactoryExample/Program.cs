@@ -47,9 +47,9 @@ namespace AbstractFactoryExample
             var smartphone = _baseFactory.CreateSmartphone();
             var watch = _baseFactory.CreateWatch();
 
-            Console.WriteLine($"{_baseFactory.GetType()} was initialized");
-            Console.WriteLine($"1 {smartphone.GetType()} was produced");
-            Console.WriteLine($"1 {watch.GetType()} was produced");
+            Console.WriteLine($"{_baseFactory.GetType().Name} was initialized");
+            Console.WriteLine($"1 {smartphone.GetType().Name} was produced");
+            Console.WriteLine($"1 {watch.GetType().Name} was produced");
         }
 
         private static void Initialize(string factoryName)
